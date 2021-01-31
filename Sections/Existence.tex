@@ -1,0 +1,298 @@
+%!TEX root = ../main.tex
+Thereom 3.4 \cite[see][p. 58]{Mao2008} assures the existence of unique solution of 
+\autoref{sys::StochasticSystem} in a compact interval. Since we study asymptotic behaviour, 
+we have to assure the existence of unique-globally-positive invariant solution 
+of SDE \autoref{sys::StochasticSystem}. The following result prove that this set is positive invariant.
+%
+%\info{Modify notation of invariant set}
+\begin{theorem}\label{thm::existence-unique}
+	For any initial values 
+	$
+		(S_p(0), L_p(0), I_p(0), S_v(0), I_v(0))^{\top}
+		\in \Gamma
+	$, 
+	exists unique a.s. invariant global positive solution to SDE 
+	\autoref{sys::StochasticSystem} in $\Gamma$, that is,
+	\begin{equation*}
+		\probX{
+			(L_p(t), I_p(t), S_v(t), I_v(t)) 
+			\in 
+			\Gamma, \quad
+			\forall t \geq 0
+		} = 1.
+	\end{equation*}
+\end{theorem}
+%
+\begin{proof}
+		Since the right hand side of system \autoref{sys::StochasticSystem} are quadratic, 
+	linear and constants terms, this imply that they are locally Lipschitz. We 
+	know by \cite[see][pp.300]{Mao2008}, that for any initial condition
+	$
+		(
+			S_p(0),
+			L_p(0),
+			I_p(0),
+			S_v (0),
+			I_v(0)
+		)^{\top} \in \Gamma
+	$ 
+	there is a unique maximal local solution 
+	$(S_p(t), L_p(t), I_p(t), S_v(t), I_v(t))^{\top}$ 
+	at $t\in [0,\tau_e)$, where 
+	$\tau_e$ is the explosion time. Let $k_0>0$ be sufficiently large, and 
+	define the stopping time
+	\begin{multline}
+		\label{eqn:invariatn_set}
+		\tau_k = %
+			\inf
+			\left\{
+				t \in [0,\tau_e)
+				: 
+				L_p(t) \notin 
+					\left(
+						\frac{1}{k_0},
+					 N_p - \frac{1}{k_0}
+					\right)		
+			%\right.
+			%\\
+			%\left.
+			 \bigcup 
+				I_p(t)
+				\notin
+				\left(
+					\frac{1}{k_0}, 
+					N_p-\frac{1}{k_0}
+				\right)
+			\right.
+			\\
+			\bigcup
+			\left.		
+					I_v(t) 
+					\notin
+					\left(
+						\frac{1}{k_0},
+						N_v - \frac{1}{k_0}
+					\right)
+			\right\},
+		\end{multline}
+    Since $k\geq k_0$ and $\left(\frac{1}{k},N_{\bullet}-\frac{1}{k}\right)$ is a increasing by 
+    the right side, we have $\tau_1\leq \tau_2\leq \dots \leq \tau_k \ldots$ and by definition
+    $\tau_k\leq\tau_e$. Then $\tau_k\to \tau_{\infty}$. In other words, $\tau_\infty = \infty$ a.s. 
+	implies
+	\begin{equation}
+		\label{eqn:invariance_prop}
+		(
+			S_p(t),
+			L_p(t),
+			I_p(t),
+			S_v(t),
+			I_v(t)
+		)^{\top}\in \mathbf{E}
+	\end{equation}
+	 a.s. for all $t\geq 0$. Thus, 
+	we  show that $\tau_\infty=\infty$ a.s. To this end,  we proceed
+	by contradiction. Suppose that the above statement is false for a given 
+	time $t$, then there is 
+	a pair of constants $T>0$ and $\epsilon  \in (0,1)$  such that some 
+	component from $L_p,I_p,I_v$, or $L_p$, get-outs from its corresponding 
+	interval
+	$$
+	\left(
+		\frac{1}{k_0}, 
+	N_{\bullet} - \frac{1}{k_0}
+	\right), 
+	$$
+	that is, %
+	$
+		\P[\tau_\infty\leq T]>\epsilon 
+	$. 
+	Hence, there is an integer $k_1\geq k_0$ such that
+%	
+	\begin{equation}\label{eqn::Probabilityoftau_k}
+		\P[\tau_k\leq T]>\epsilon,
+		\quad \forall k\geq k_1.
+	\end{equation}
+	
+		Define a function $V_p:(0,N_p)\rightarrow \mathbb{R}_+$ by
+%	
+	\begin{equation*}
+		V_p(x) := 
+			\frac{1}{x} + 
+			\frac{1}{N_p-x}.
+	\end{equation*}
+%	
+	According to the diffusion operation $\mathcal{L}$
+	see \autoref{eqn::DifussionOperator}. By diffusion operator, we have, for any 
+	$t\in [0,T]$ and $k\geq k_1$ 
+%
+	\begin{align*}
+		\mathcal{L}[V_p(L_p)] 
+			=&	
+				\left[
+					-\frac{1}{L_p^2} + 
+					\frac{1}{(N_p - L_p) ^ 2}
+				\right]
+				\left[
+					\beta_p S_p 
+					\frac{I_v}{N_v} - 
+					(b + r_1) L_p\right]
+				\\
+			&+
+				\frac{1}{2}
+				\left[
+					\frac{2}{L_p^3} + 
+					\frac{2}{(N_p - L_p)^3}
+				\right]
+				\sigma_p ^ 2
+				\frac{L_p^2 S_p^2}{N_p^2}.
+			\\
+	\end{align*}
+%	
+	Expanding each term, we have
+	\begin{align*}
+		\mathcal{L}[V_p(L_p)] 
+			&=	
+				-\beta_p \frac{S_p I_v}{L_p^2 N_v} + 
+				\beta_p \frac{S_p I_v}{(N_p -L_p) ^ 2 N_v} + 
+				\frac{(b + r_1)}{L_p} - 
+				\frac{(b+r_1)L_p}{(N_p-L_p)^2}
+				\\
+			&+
+				\left[
+					\frac{1}{L_p^3} + 
+					\frac{1}{(N_p-L_p)^3}
+				\right]
+				\sigma_p ^ 2
+				\frac{L_p^2 S_p^2}{N_p^2}.
+				\\
+	\end{align*}
+%	
+	Dropping negative terms, we bound the above relation by
+	\begin{align*}
+		\mathcal{L}[V_p(L_p)] 
+			&\leq	
+				\beta_p 
+				\frac{S_p}{(N_p - L_p) ^ 2} + 
+				\frac{(b + r_1)}{L_p} + 
+				\left[
+					\frac{1}{L_p^3} + 
+					\frac{1}{(N_p-L_p)^3}
+				\right]
+				\sigma_p ^ 2
+				\frac{L_p ^ 2 S_p ^ 2}{N_p ^ 2}.
+	\end{align*}
+	Since $S_p\leq S_p+I_p\leq N_p-L_p$, we have $\frac{S_p}{N_p-L_p}\leq 1$, then
+	%\info{Rewview this steap}
+	\begin{align*}
+		\mathcal{L}[V_p(L_p)] 
+			&\leq		
+				\frac{\beta_p}{N_p -L_p} + 
+				\frac{(b + r_1)}{L_p} + 
+				\sigma_p^2
+				\left[
+					\frac{1}{L_p} + 
+					\frac{L_p^2}{N_p^2(N_p-L_p)}
+				\right].
+	\end{align*}
+	And by $L_p\leq N_p$ we bound the diffusion operator as
+	%\info{explain why}
+	\begin{align*}
+		\mathcal{L}[V_p(L_p)] 
+			&\leq		
+			\frac{b+r_1}{L_p} + 
+			\frac{\beta_p}{N_p -L_p} +  
+			\sigma_p^2
+			\left[
+				\frac{1}{L_p} + 
+				\frac{1}{N_p-L_p}
+			\right].
+	\end{align*}
+	%
+	Now define $C := (b+r_1) \vee \beta_p +\sigma_p^2$, we obtain the 
+	following inequality
+	\begin{align}\label{eqn::BoundDiffusionOperator}
+		\mathcal{L}[V(L_p)] 
+			&\leq		
+				C V_p(L_p).
+	\end{align}
+	
+	By It\^{o}'s formula see Appendix A \autoref{eqn::Itoformula}, and applying
+	\change{Fix appendix reference}
+	expectation, we have, for any 
+	$t \in [0,T]$ and $k\geq k_1$
+	\begin{align*}
+		\E V(L_p(t\wedge\tau_k)) &= 
+			V(L_p(0)) + 
+			\E 
+				\int_{0}^{t\wedge\tau_k} \mathcal{L}[V(L_p(s))]
+			ds.
+	\end{align*}
+	%
+	By equation \autoref{eqn::BoundDiffusionOperator} and Fubini's Theorem, we have
+	\begin{align*}
+		\E V(L_p(t\wedge\tau_k)) 
+			&\leq 
+				V(L_p(0)) + 
+				C
+				\int_{0}^{t}
+					\E V(L_p(s\wedge\tau_k))
+				ds.
+	\end{align*}
+	Applying the Gronwall inequality yields that	
+	\begin{align}\label{eqn::GronwallBound}
+		\E V(L_p(t\wedge\tau_k))&\leq V(L_p(0))e^{CT}.
+	\end{align}
+
+		Set 
+	$
+		\Omega_k = \{\omega : \tau_k\leq T\}
+	$ for $k\geq k_1$, note that by relation in 
+	\autoref{eqn::Probabilityoftau_k}, 
+	$
+		\P(\Omega_k) >  \epsilon
+	$. For every 
+	$
+		\omega \in \Omega_k
+	$, we have 
+	$
+		L_p(t,\omega) \in 
+		\left(
+			\frac{1}{k_0}, N_p - 
+			\frac{1}{k_0}
+		\right) ^ {\complement}
+	$, and hence
+	\begin{align*}
+		V_p(L_p(t,\omega))
+			&=
+				\frac{1}{L_p} + 
+				\frac{1}{N_p-L_p}
+			\\
+			&\geq 
+				k + 
+				\frac{1}{
+					N_p - \frac{1}{k}}
+			\\
+			& \geq k.
+	\end{align*}
+%	
+	It follows from equation \autoref{eqn::GronwallBound}, that
+	\begin{equation*}
+		V_p(L_p(0)) e^{CT}
+			\geq 
+			\E 
+			\left[
+				\1{\Omega_k} (\omega)
+				V_p(L_p(\tau_k,\omega))
+			\right]
+			\geq k
+			\prob (\Omega_k)\geq \epsilon k.
+	\end{equation*}
+%
+	Thus, letting $k\rightarrow \infty$ leads to the contradiction
+	\begin{equation*}
+		\infty>V_p(L_p(0))e^{CT}\geq \infty.	
+	\end{equation*}
+%
+	Therefore we  have $\tau_\infty=\infty$ a.s., and the proof is 
+	complete. \qed
+\end{proof}

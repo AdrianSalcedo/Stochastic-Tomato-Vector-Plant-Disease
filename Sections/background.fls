@@ -1,0 +1,6 @@
+PWD /home/saul/sauld@cimat.mx/UNISON/Articles/StochasticOptimalControl/Stochastic-Tomato-Vector-Plant-Disease/Sections
+INPUT /usr/local/texlive/2019/texmf.cnf
+INPUT /usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT background.tex
+OUTPUT background.log

@@ -1,0 +1,399 @@
+%!TEX root = ../main.tex
+\change{Rewrite according to notation of above notation and Hyp 1}
+\begin{hyp}\label{eqn::hypLowerBound}
+    According to \autoref{thm::UpperBound}, we need consider  
+	\begin{align*}
+		&
+		\min
+			\left\{
+			r (1 - 2 \rho_1) (S_p ^{**}) ^ 2,
+			r (1 - 2 \rho_1) (L_p ^{**}) ^ 2, 
+			r(1 - 2 \rho_1) (I_p ^ {**}) ^ 2,
+		\right.
+		\\
+		&
+		\left.
+		 	\gamma 
+		 	(1 - 2 \rho_2) (S_v ^{**} ) ^ 2,
+		 	\gamma
+		 	\left(
+		 		1 - 
+		 		\frac{1}{4 \rho_2}
+		 	\right)
+		 	(I_v ^{**} ) ^ 2
+		\right\}
+		\\
+		& \geq 
+		K_1 \alpha_1 + 
+		K_2 \alpha_2 + 
+		\frac{1}{2}
+		\left(
+		 	\sigma_p ^ 2
+		 	\left(
+		 		K_1 L_p ^{**} +
+		 		K_2 I_p ^{**} + 
+		 		2N_p ^2 
+		 	\right) + 
+		 	3 \sigma_v ^ 2 N_v ^ 2
+		\right).
+	\end{align*} 
+\end{hyp}
+
+%
+\begin{theorem}
+ 	\label{thm::LowerBound}
+ 	\change{Fix hyp autoref}
+ 	Let $\mathcal{R}^s_0>1$ and Hypotheses \autoref{eqn::NoiseBreak}-
+ 	\autoref{eqn::hypLowerBound} holds. Then
+ 	\begin{equation}\label{eqn::lowerSuscPlant}
+ 		\begin{aligned}
+			\liminf_{t \to \infty}
+			\frac{1}{t}
+			\int_0 ^ t S_p dr 
+			\geq  
+			\frac{S_p ^* }{2} 
+			&-
+			 	\frac{
+			 		K_1 \alpha_1 + 
+			 		K_2 \alpha_2
+			 	}{ r (1 - 2 \rho_1)} 
+			\\
+			&+
+				\frac{
+			 		\sigma_p ^ 2 
+			 		\left(
+			 			K_1 L_p ^ * + 
+			 			K_2 I_p ^* + 2N_p ^ 2
+			 		\right) + 
+			 		3 \sigma_v ^ 2 N_v^2
+				}{2 r (1 - 2 \rho_1)}
+				 \qquad \mbox{a.s.}
+		\end{aligned}
+	\end{equation}
+%
+	\begin{equation}\label{eqn::lowerLatenPlant}
+	 	\begin{aligned}
+	 		\liminf_{t\to \infty}
+ 				\frac{1}{t}
+ 				\int_0^t
+ 					L_p dr
+ 				\geq 
+ 				\frac{L_p^*}{2} 
+ 				&- 
+ 				\frac{K_1 \alpha_1 + 
+ 					K_2 \alpha_2}{ r(1 - 2 \rho_1)}
+ 				\\
+	 		&+
+ 				\frac{\sigma_p ^ 2
+ 					\left(
+ 						K_1 L_p ^* + 
+ 						K_2 I_p ^* + 2N_p ^ 2
+ 					\right) + 
+ 					3 \sigma_v ^ 2 
+ 					N_v ^ 2}{2 r(1 - 2 \rho_1)}
+ 				 \qquad \mbox{a.s.}
+ 	\end{aligned}
+ \end{equation}
+%
+ \begin{equation}\label{eqn::lowerInfecPlant}
+ 	\begin{aligned}
+ 		\liminf_{t\to \infty}
+ 			\frac{1}{t}
+ 			\int_0 ^ t I_p dr
+ 			\geq 
+ 			\frac{I_p ^ *}{2}
+ 			&- 
+ 			\frac{K_1 \alpha_1 + 
+ 				K_2\alpha_2}{r (1 - 2 \rho_1)}
+ 				\\
+ 		&+
+	 			\frac{\sigma_p ^ 2
+	 					K_1 L_p ^* + 
+	 					K_2 I_p ^* + 
+	 					2N_p ^ 2
+	 				 + 
+	 				3 \sigma_v^2 N_v^2}{2r(1 - 2 \rho_1)}
+ 			\qquad \mbox{a.s.}
+ 		\end{aligned}
+ 	\end{equation}
+%
+and
+	\begin{equation}\label{eqn::lowerSuscVector}
+		\begin{aligned}
+				\liminf\limits_{t \to \infty}
+				\frac{1}{t}
+				\int_{0} ^ {t} S_v dr
+			 	\geq
+			 	\frac{S_v^*}{2} 
+		 	&- 
+			 	\frac{K_1 \alpha_1 + 
+			 		K_2 \alpha_2}{\gamma(1 - 2 \rho_2)}
+			 	\\
+ 			&+
+ 					\frac{\sigma_p ^ 2
+ 						\left(
+ 							K_1 L_p ^* +
+ 							K_2 I_p ^* + 
+ 							2N_p ^ 2
+ 						\right) + 
+ 						3\sigma_v^2 N_v^2}{2\gamma(1 - 2 \rho_2)}
+ 						\qquad \mbox{a.s.}
+		\end{aligned}
+	\end{equation}
+%
+	\begin{equation}\label{eqn::lowerInfecVector}
+		\begin{aligned}
+				\liminf
+				\limits_{t \to \infty}
+				\frac{1}{t}
+				\int_{0} ^ {t} 
+					I_v 
+				dr
+				\geq
+				\frac{I_v^*}{2}
+				&- 
+				    \frac{
+			    	K_1 \alpha_1 + 
+					K_2 \alpha_2
+					}{\gamma (1 - \frac{1}{4\rho_2} )}
+					\\
+			&+
+					\frac{\sigma_p^2
+						\left(
+							K_1 L_p ^* + 
+							K_2 I_p ^* + 
+							2N_p ^2
+						\right) + 
+						3 \sigma_v^2 
+						N_v ^ 2}{2\gamma (1 - \frac{1}{4\rho_2} )}
+				\qquad \mbox{a.s.}
+ 		\end{aligned}
+	\end{equation}
+\end{theorem}
+\begin{proof}
+		By the hypothesis of \autoref{thm::LowerBound}, 
+	we have that inequality \autoref{eqn::UP-1} 
+	is satisfied. Then, we have the follows bounds
+	 \begin{align*}
+	 	\limsup
+	 		\limits_{t \to \infty}
+		 	&
+		 	\frac{1}{t}
+		 	\int_{0}^{t}
+		 	(	r (1 - 2 \rho_1)
+		 		\left(
+		 			S_p - S_p ^* 
+		 		\right) ^2 
+		 	)
+		 	dr 
+		 	\leq 
+		 	K_2 \alpha_1 + 
+		 	K_1 \alpha_2
+		 \\
+ 		&+
+ 			\frac{1}{2}
+ 			\left(
+ 				\sigma_p^2 
+ 				(
+ 					L_p ^* K_1 + 
+ 					I_p ^ *K_2 + 
+ 					2 N_p ^ 2
+ 				) + 
+ 				3 N_v ^ 2 \sigma_v^2
+ 			\right).
+	\end{align*}
+ Besides, 
+ \begin{align*}
+ 	(S_p ^* ) ^ 2 + 
+ 	(S_p - S_p ^* ) ^ 2
+ 	&\geq
+ 	2(S_p ^ *)
+ 	(S_p ^ * - S_p).
+ 	\\
+ \end{align*}
+this implies,
+\begin{align*}
+	S_p
+ 		&\geq
+ 			\frac{S_p ^ *}{2} - 
+ 			\frac{(S_p - S_p^*)^2}{2 S_p^*}.
+\end{align*}
+Therefore,
+	\begin{align*}
+ 		\liminf
+ 		\limits_{t \to \infty}
+ 		\frac{1}{t}
+ 		\int_{0} ^ {t} S_p dr
+ 		\geq
+ 		\frac{S_p^*}{2}
+ 		-& 
+ 		\limsup_{t\infty \to \infty}
+ 		\int_{0}^{t}
+ 			\frac{(S_p - S_p ^* )^2}{2S_p^*} 
+ 		dr
+ 		\\
+	 	&\geq
+	 		\frac{S_p^*}{2} - 
+	 		\frac{1}{r(1-2\rho_1)}
+	 		\left(
+	 			K_2 \alpha_1 + 
+	 			K_1 \alpha_2
+	 		\right. +
+ 			\\
+ 			&
+ 			\frac{1}{2}
+ 			\left(
+ 				\sigma_p ^ 2 
+ 				(
+ 					L_p ^* K_1 + 
+ 					I_p ^* K_2 + 2N_p^2
+ 				) + 
+ 				3 N_v ^ 2
+ 				\sigma_v ^ 2
+ 			\right)
+ 			>0\qquad\mbox{a.s.}
+	\end{align*}
+%
+	Similarly, we have
+	\begin{align*}
+	 	\liminf
+	 	\limits_{t \to \infty}
+	 	\frac{1}{t}\int_{0}^{t} L_p dr
+	 	&\geq
+	 	\frac{L_p^*}{2} - 
+	 	\frac{1}{ r(1 - 2 \rho_1)}
+	 	\left(
+	 		K_2 \alpha_1 + 
+	 		K_1 \alpha_2
+	 	\right.
+	 	\\
+	 	&+
+	 	\frac{1}{2}
+	 	\left(
+	 		\sigma_p^2(
+	 			L_p ^ *K_1 + 
+	 			I_p ^* K_2 + 
+	 			2 N_p ^ 2
+	 		) + 
+	 		3 N_v ^ 2 \sigma_v ^ 2
+	 	\right)
+	 	>0 \qquad\mbox{a.s.}
+	\end{align*}
+	%
+	\begin{align*}
+	 	\liminf
+	 	\limits_{t \to \infty}
+	 	\frac{1}{t}
+	 	\int_{0} ^ {t} I_p dr
+	 	&
+	 	\geq
+	 	\frac{I_p ^ *}{2} - 
+	 	\frac{1}{ r (1 - 2 \rho_1)}
+	 	\left(
+	 		K_2 \alpha_1 + 
+	 		K_1 \alpha_2 
+	 	\right)
+	 	\\
+ 		&+
+ 		\frac{1}{2}
+ 		\left(
+ 			\sigma_p ^ 2
+ 			(
+ 				L_p ^* K_1 + 
+ 				I_p ^* K_2 + 
+ 				2 N_p ^ 2
+ 			) + 
+ 			3 N_v ^ 2
+ 			\sigma_v ^ 2
+ 		\right)>0
+	\end{align*}
+	and for the vector population, we have
+	\begin{align*}
+	 	&
+	 	\liminf
+	 	\limits_{t \to \infty}
+	 	\frac{1}{t}
+	 	\int_{0} ^ {t} 
+	 		S_v 
+	 	dr
+	 	\geq
+	 	\frac{S_v^*}{2}
+	 	-
+	 	\limsup_{t\to \infty}
+	 	\int_{0} ^ {t}
+	 	\frac{(S_v - S_v^*) ^ 2}{2 (S_v ^* )}dr
+	 	\\
+	 	&\geq
+	 	\frac{S_v ^* }{2} - 
+	 	\frac{1}{\gamma(1-2\rho_2)}
+	 	\left(
+	 		K_2 \alpha_1 + 
+	 		K_1 \alpha_2
+	 	\right.+
+ 		\frac{1}{2}
+ 		\left(
+ 			\sigma_p^2
+ 			(
+ 				L_p ^* K_1 + 
+ 				I_p ^* K_2 + 
+ 				2N_p ^2
+ 			) + 
+ 			3N_v ^ 2
+ 			\sigma_v ^ 2
+ 		\right) >0
+	\end{align*}
+%
+ \begin{align*}
+	 	&
+	 	\liminf\limits_{t \to \infty}
+	 	\frac{1}{t}\int_{0}^{t} I_v dr
+	 	\geq
+ 		\frac{I_v^*}{2} - 
+ 		\frac{1}{
+ 			\gamma
+ 			(
+ 				1 - 
+ 				\frac{1}{4\rho_2}
+ 			)}
+ 		\left(
+ 			K_2 \alpha_1 + 
+ 			K_1 \alpha_2
+ 		\right.\\
+	 	&+
+	 	\frac{1}{2}
+	 	\left(
+	 		\sigma_p ^ 2
+	 		(
+	 			L_p ^* K_1 + 
+	 			I_p ^ *K_2 + 
+	 			2N_p ^ 2
+	 		) + 
+	 		3N_v ^ 2
+	 		\sigma_v ^ 2
+	 	\right)
+	 	>0
+ \end{align*}
+\end{proof}
+%
+\begin{remark}
+	\autoref{thm::LowerBound} shows that, under the hypothesis 1 and 2
+	and the bound of \autoref{thm::UpperBound}, the mean of the 
+	populations is almost certainly positive. 
+\end{remark}
+%\change{write a introduction sentence}
+The following theorem shows us that the system \autoref{sys::StochasticSystem} is persistent in mean.
+\begin{theorem}
+	Let $\mathcal{R}^s_0>1$ and conditions \autoref{eqn::NoiseBreak}-
+	\autoref{eqn::hypLowerBound} holds. 
+	Then the system \autoref{sys::StochasticSystem} is persistent in mean.
+\end{theorem}
+\begin{proof}
+%	\improvement{improve redaction}
+	By the hypothesis \autoref{eqn::NoiseBreak}, we have the upper bound
+	\autoref{eqn::UP-1}. Since \autoref{eqn::hypLowerBound} is hold, we have by
+	\autoref{thm::LowerBound} the lower bound
+	\autoref{eqn::lowerSuscPlant}-\autoref{eqn::lowerInfecVector}. 
+	And therefore by the definition \autoref{def::persistence},
+	we have the system \autoref{sys::StochasticSystem} is persistence in mean.
+	\qed
+\end{proof}

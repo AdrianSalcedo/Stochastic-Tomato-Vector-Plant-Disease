@@ -1,0 +1,92 @@
+%
+\info{Include references}
+Following ideas from [referencia], we quantify uncertinity in replanting rate of
+plants, and  died rate of vector, $r_1$, $r_2$ and $\gamma$, see
+\autoref{tbl:deterministic_tbl}, we perturb parameters  $r_1 ,r_2$ and $\gamma$
+with a Brownian process to obtain a stochastic differential equation(SDE). 
+Here, the perturbation describe stochastic environmental noise on each population.
+In symbols $ dB(t)=B(t+dt)-B(t)$ denotes the increment of a standard Wiener
+process, thus we perturb potentially replanting $r_1$, $r_2$, and vector death
+$\gamma$ in the infinitiesimal time interval $[t, t + dt)$ by
+\begin{equation}
+	\label{eqn::NoisePerturbation}
+	\begin{aligned}
+		{r}_1 dt \rightsquigarrow r_1 dt + \sigma_L dB_p(t),
+		\\
+		{r}_2 dt \rightsquigarrow r_2 dt + \sigma_I dB_p(t),
+		\\
+		\gamma dt \rightsquigarrow \gamma dt + \sigma_v dB_v(t).
+	\end{aligned}
+\end{equation}
+
+	Note that right hand side of \autoref{eqn::NoisePerturbation}
+	is a random perturbations of parameters
+$r_1$, $r_2$, $\gamma$, with mean
+$
+	\EX{r_1 dt + \sigma_L dB_p(t)}
+$
+and variance 
+\change{review ending lines}
+$
+	\VarX{r_1 dt + \sigma_L dB_p(t)} = \sigma_L^2dt
+$, 
+$
+	\EX{\tilde{r}_2dt} = r_2dt
+$ 
+and
+$
+	\VarX{\tilde{r}_2dt} = \sigma_I^2dt
+$ 
+and 
+$
+	\EX{\tilde{\gamma}dt} = \gamma dt
+$ and 
+$
+	\VarX{\tilde{\gamma}dt} = \sigma_v^2dt
+$.
+%
+Thus, we establish an stochastic extension from deterministic tomato model 
+\autoref{sys::DeterministicSystem} by the It\^{o} SDE
+
+\begin{equation}
+	\label{sys::StochasticSystem}
+	\begin{aligned}
+		d S_p &=
+			\left(
+				-\beta_p S_p \frac{I_v}{N_v} + r_1 L_p + r_2 I_p
+			\right)dt 
+			+ \frac{S_p(\sigma_L L_p
+			+ 
+			\sigma_I I_p)}{N_p}dB_p(t) 
+		\\
+		dL_p &=
+			\left(
+				\beta_p S_p \frac{I_v}{N_v} - b L_p - r_1 L_p
+			\right) dt 
+			- \sigma_L \frac{S_pL_p}{N_p} dB_p(t) 
+		\\
+		d I_p &=
+			\left(
+				b L_p - r_2 I_p
+			\right) dt 
+			- \sigma_I \frac{S_pI_p}{N_p} dB_p(t) 
+		\\
+		dS_v &=
+			\left(
+				-\beta_v S_v \frac{I_p}{N_p} - \gamma S_v  + (1-\theta) \mu
+			\right)dt - \sigma_v S_v dB_v(t) 
+		\\
+		d I_v &=
+			\left(
+				\beta_v S_v \frac{I_p}{N_p} -\gamma I_v + \theta \mu
+			\right) dt 
+			- \sigma_v I_v dB_v(t),
+			 \\
+			S_p(0) &=S_{p0}, 
+            L_p(0) = L_{p0},
+            I_p(0) = I_{p0},
+            \\
+             S_v(0) &= S_{v0},
+              I_v(0) = I_{v0}
+	\end{aligned}
+\end{equation}

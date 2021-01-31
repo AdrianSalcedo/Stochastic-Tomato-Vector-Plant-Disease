@@ -1,0 +1,26 @@
+List for review:
+Zhao2013
+Zhang2017a      **  See Lyapnov Function.
+Liu2018a        **  For persistece def
+Wang2017
+Liu2018d        *   Dengue
+Cai2017a        *   Mobility
+Lu2009
+ElFatini2018
+Liu2019b
+Lahrouz2017a
+Wang2018a
+Cao2016a        *** Review 
+Tang2015        *** Review
+Ji2014          **  Review
+Liu2018b        *   Vaccination
+Cai2015         **  General ideas
+Zhang2018a      *** For extinction by noise
+Zhao2014        *** Threshold behaviour
+Chang2017       *** Good idea for COVID 19
+Dieu2018        **  Lie approach
+Lin2014a        **  Threshold
+Maliyoni2017    *** Thickbone with CMCM deduction
+Qiu2013         *** Permanence
+Lin2017a        *   Degenerate Difussion
+Cai2013         *   General force of infection 

@@ -1,0 +1,242 @@
+%!TEX root = ../main.tex
+\info{Write deterministic model formulation. Cite Holt. Descrie importatn hypothesis.}
+\begin{equation}
+	\label{sys::DeterministicSystem} 
+	\begin{aligned} 
+		\dot{S_p} &= 
+			-\beta_p S_p
+			\frac{I_v}{N_v} + \tilde{r_1} L_p + \tilde{r_2} I_p  
+		\\ 
+		\dot{L_p} &= 
+			\beta_p S_p
+			\frac{I_v}{N_v} - b L_p - \tilde{r_1} L_p  
+		\\ 
+		\dot{I_p} &= 
+			b L_p - \tilde{r_2} I_p  \\ 
+		\dot{S_v} &= 
+			-\beta_v S_v 
+			\frac{I_p}{N_p} - \tilde{\gamma} S_v
+			+(1-\theta) \mu  
+		\\ 
+		\dot{I_v} &= 
+			\beta_v S_v \frac{I_p}{N_p} 
+			- \tilde{\gamma} I_v
+			+ \theta \mu 
+			 \\
+			S_p(0) &=S_{p0}, 
+            L_p(0) = L_{p0},
+            I_p(0) = I_{p0},
+            \\
+             S_v(0) &= S_{v0},
+              I_v(0) = I_{v0}
+             \\
+             N_p(t) &= S_p(t) + L_p(t) + I_p(t),
+             \\
+             N_v(t) &= S_v(t) + I_v(t),
+	\end{aligned} 
+\end{equation} 
+%\todo{Make a table for description of  all parameters}
+\begin{table}
+	\begin{center}
+		\begin{tabular}{rll} 
+			\toprule
+			Par. & Unit & Description 
+			\\ 
+			\midrule
+				$\beta_p$ 
+				& 
+					\SI{}{vector \per day}
+				& 
+					infection rate of susceptible 
+					plants by infected vectors 
+			\\ 
+				$r_1$, $r_2$ 
+				& 
+					$\SI{}{day}^{-1}$ 
+				& 
+					replanting rate of latent and 
+					infected plants, respectively. 
+			\\
+				$b$ 
+				& 
+					$\SI{}{day}^{-1}$ 
+				& 
+					latency rate, plant latent 
+					becomes infectious 
+			\\
+				$\gamma$ 
+				& 
+					$\SI{}{day}^{-1}$ 
+				&  vector death rate 
+			\\
+				$\mu$ 
+				& \SI{}{plant \per day}
+				& vector migration rates from alternative plants to crop
+			\\
+				$\theta$ 
+				& 
+				& proportion vector migration rate
+			\\
+				$\beta_v$ 
+				& \SI{}{plant\per day}
+				& infection rate of susceptible vectors by an infected plant
+			\\
+			\bottomrule
+		\end{tabular}
+	\end{center}
+	\caption{
+		Parameters description and values of
+		deterministic dynamics in ODE (*).
+	}
+	\label{tbl:deterministic_tbl}
+\end{table}
+%\info{Add initial conditions}
+%
+\begin{table}
+	\begin{center}
+		\begin{tabular}{rllll} 
+			\toprule
+			Par. & Deterministic & Extinction by Noise & $R^s_0<1$ & $R^s_0>1$ 
+			\\ 
+			\midrule
+				$\beta_p$ 
+				& 
+                    0.1
+                &
+				    0.05 
+				& 
+				    0.01 
+				& 
+				    0.8 
+			\\ 
+				$r_1$
+				&
+				    0.01
+				&
+				    0.9 
+				& 
+				    0.9
+				& 
+				    0.6
+			\\
+				$r_2$ 
+				&
+				    0.01
+				&
+				    0.005 
+				& 
+				    0.9 
+				& 
+				    0.6
+			\\
+				$b$ 
+				&
+				    0.075
+				&
+				    0.9 
+				&   
+				    0.5
+				& 
+				    0.5 
+			\\
+				$\gamma$ 
+				&
+				    0.06
+				&
+				    0.3
+				& 
+				    0.74247636 
+				& 
+				    0.06
+			\\
+				$\mu$ 
+				&
+				    0.3
+				&
+				    0.3 
+				& 
+				    0.058596601 
+				& 
+				0.058596601
+			\\
+				$\theta$ 
+				&
+				    0.4
+				&
+				    0.0 
+				&   
+				    0.818469652
+				&   
+				    0.818469652
+			\\
+				$\beta_v$ 
+			    &
+			        0.003
+			    &
+			        0.1 
+			    & 
+			        0.227718623 
+			    & 
+			        0.8
+			\\
+			    $\sigma_p$ 
+			    &
+			        -
+			    &
+			        0.3 
+			    & 
+			        0.378173863 
+			    & 
+			        0.378173863
+			\\
+                $\sigma_v$ 
+                & 
+                    -
+                &
+                    0.3 
+                & 
+                    0.254146903 
+                & 
+                    0.254146903 
+            \\
+			\bottomrule
+		\end{tabular}
+	\end{center}
+	\caption{
+		Parameters values of
+		stochastic dynamics.
+	}
+	\label{tbl:value}
+	\end{table}
+
+%\todo{%Redact this conservation law to the entire system \autoref{sys::DeterministicSystem}.
+%Write a introductory paragraph to Thm 1}
+
+Note that we have conservation laws for populations of plants and vectors.
+In the plant population, we have a constant population conservation law.
+Whereas for vector population, we do not have a constant population, but we bound
+the total population by a positive constant. \autoref{thm::conservationlaw}
+shows the bound for each law conservation.
+
+\begin{theorem}\label{thm::conservationlaw}
+	With the notation of ODE \eqref{sys::DeterministicSystem}, let
+	\begin{equation*}
+		\begin{aligned}
+		 	N_v^{\infty} &:= \frac{\mu}{\gamma}.
+		 \end{aligned}
+	\end{equation*}
+	Then for any initial condition 
+	$
+		(S_p(0), L_p(0), I_p(0), S_v(0), I_v(0) )^\top
+	 	\in \Gamma
+	$, plant and vector total populations respectively satisfies
+	\begin{equation*}
+		\begin{aligned}
+			& \frac{d N_p}{dt} =
+				\frac{d}{dt}(S_p + L_p + I_p) = 0,
+			\\
+			& \lim_{t\to \infty}
+				N_v(t) = N_v^{\infty}.
+		\end{aligned}
+	\end{equation*}
+\end{theorem}

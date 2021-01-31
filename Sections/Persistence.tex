@@ -1,0 +1,165 @@
+\begin{theorem}\label{theorem_3}
+	Let $(S_p(t),L_p(t),I_p(t),I_v(t))^{\top}$ be the solution of (\ref{system_3}) with initial values $(S_p(0),L_p(0),I_p(0),I_v(0))^{\top}\in \mathbf{E}$. If $\mathcal{R}^s_0>1$, then the solution of system (\ref{system_3}) oscillates around the endemic equilibrium point if
+	
+	\begin{align*}	
+		\lim\limits_{t\rightarrow \infty¸}&\frac{1}{t}\E \int_{0}^{t} \left[\frac{k_1rS_p^*}{S_pS_p^*}(S_p-S_p^*)^2+\frac{\gamma k_4}{S_vS_v^*}(S_v-S_v^*)^2+\frac{\gamma k_5 I_v^*}{I_vI_v^*}(I_v-I_v^*)^2\right.\\
+		&+
+		\left.\frac{k_1\beta_p}{N_v}S_p^*I_v^*\left(\frac{S_p^*}{S_p}+\frac{S_pI_vL_p^*}{S_p^*I_v^*L_p}+\frac{L_pI_p}{L_p^*I_p^*}+\frac{S_vI_p^*I_v^*}{S_v^*I_pI_v}+\frac{S_v^*}{S_v}-5\right)\right]ds\\
+		&\leq
+		\frac{1}{2}\left(k_1\sigma_p^2S_p^*+k_2\sigma_p^2 L_p^*+k_3\sigma_p^2I_p^*+k_4\sigma_v^2S_v^*+k_5\sigma_v^2I_v^*\right) \quad a.s.
+	\end{align*}
+	
+	namely, the disease will persist with probability one.
+\end{theorem}
+\begin{proof}
+	The proof consitst verify that the inffinitesimal operator applied to Lyapunov is bounded. Consider the following Lyapunov function
+	
+	\begin{equation}
+		\begin{aligned}
+				V(S_p,L_p,&I_p,S_v,I_v) 
+					= 
+						k_1(S_p-S_p^*-S_p^*\ln(S_p/N_p))\\
+					&+
+						k_2(L_p-L_p^*-L_p^*\ln(L_p/N_p))+k_3(I_p-I_p^*-I_p^*\ln(I_p/N_p))\\
+					&+
+					k_4(S_v-S_v^*-S_v^*\ln(S_v/N_v))+k_5(I_v-I_v^*-I_v^*\ln(I_v/N_v)).\\						
+		\end{aligned}
+	\end{equation}
+%
+    where $k_1=1$, $k_1=k_2$, $k_3=\frac{\beta_p S_p^* I_v^*}{N_vrI_p^*}k_1$, $k_4 = \frac{N_p\beta_p S_p^* I_v^*}{\beta_v N_vrS_v^*I_p^*}k_1$. Let $f$, $g$ respectively be the dirft and difussion of SDE (\ref{Positive3}).	Applyng the inifinitesimal opreator $\mathcal{L}$ we have
+	
+	\begin{align*}
+		\mathcal{L}&[V(S_p,L_p,I_p,S_v,I_v)]= 
+				k_1\left(1-\frac{S_p^*}{S_p}\right)\left(-\beta_p S_p\frac{I_v}{N_v}+r_1L_p+r_2I_p\right)\\
+			&+
+				k_2\left(1-\frac{L_p^*}{L_p}\right)\left(\beta_p S_p\frac{I_v}{N_v}-(b+r_1)L_p\right)
+			+
+				k_3\left(1-\frac{I_p^*}{I_p}\right)\left(bL_p-r_2I_p\right)\\
+			&+
+				k_4\left(1-\frac{S_v^*}{S_v}\right)\left(-\beta_v S_v\frac{I_p}{N_p}-\gamma S_v +(1-\theta)\mu\right)\\
+			&+
+				k_5\left(1-\frac{I_v^*}{I_v}\right)\left(\beta_v S_v\frac{I_p}{N_p}-\gamma I_v+\theta\mu\right)\\
+			&+
+				\frac{1}{2}\left(\frac{k_1\sigma_p^2(L_p+I_p)^2S_p^*}{N^2_p}+\frac{k_2\sigma_p^2S_p^2 L_p^*}{N^2_p}+\frac{k_3\sigma_p^2S_p^2 I_p^*}{N^2_p}
+			+
+				k_4\sigma_v^2S_v^*+k_5\sigma_v^2I_v^*\right).
+	\end{align*}
+	We focus in the first five terms. Taking $r=r_1+r_2$, we can bound the diffusion operator $\mathcal{L}[V]$ by 
+	
+	\begin{align*}
+		\mathcal{L}&[V(S_p,L_p,I_p,S_v,I_v)]\leq 
+		k_1\left(1-\frac{S_p^*}{S_p}\right)\left(-\beta_p S_p\frac{I_v}{N_v}+r(N_p-S_p)\right)\\
+		&+
+		k_2\left(1-\frac{L_p^*}{L_p}\right)\left(\beta_p S_p\frac{I_v}{N_v}-(b+r)L_p\right)
+		+
+		k_3\left(1-\frac{I_p^*}{I_p}\right)\left(bL_p-rI_p\right)\\
+		&+
+		k_4\left(1-\frac{S_v^*}{S_v}\right)\left(-\beta_v S_v\frac{I_p}{N_p}-\gamma S_v +(1-\theta)\mu\right)\\
+		&+
+		k_5\left(1-\frac{I_v^*}{I_v}\right)\left(\beta_v S_v\frac{I_p}{N_p}-\gamma I_v+\theta\mu\right)\\
+		&+
+		\frac{1}{2}\left(\frac{k_1\sigma_p^2(L_p+I_p)^2S_p^*}{N^2_p}+\frac{k_2\sigma_p^2S_p^2 L_p^*}{N^2_p}+\frac{k_3\sigma_p^2S_p^2 I_p^*}{N^2_p}
+		+
+		k_4\sigma_v^2S_v^*+k_5\sigma_v^2I_v^*\right).
+	\end{align*}
+%	
+	 Now, by hypothesis for endemic equilibrium point we have, $rN_p=\beta_p S^*_p\frac{I^*_v}{N_v}+rS^*_p$, $(b+r)=\beta_p S^*_p\frac{I^*_v}{L_p^*N_v}$, $b = r\frac{I^*_p}{L^*_p}$, $(1-\theta)\mu =\beta_v S^*_v\frac{I^*_p}{N_p}+\gamma S^*_v$, $\theta\mu =-\beta_v S^*_v\frac{I^*_p}{N_p}+\gamma I^*_v$, applying this into the above inequality we obtain
+	
+	\begin{align*}
+		\mathcal{L}&[V(S_p,L_p,I_p,S_v,I_v)]\leq 
+			k_1\left(1-\frac{S_p^*}{S_p}\right)\left(-\beta_p S_p\frac{I_v}{N_v}+\beta_p S^*_p\frac{I^*_v}{N_v}+rS^*_p-rS_p\right)\\
+		&+
+			k_2\left(1-\frac{L_p^*}{L_p}\right)\left(\beta_p S_p\frac{I_v}{N_v}-\beta_p S^*_p\frac{I^*_v}{L_p^*N_v}L_p\right)
+		+
+			k_3\left(1-\frac{I_p^*}{I_p}\right)\left(r\frac{I^*_p}{L^*_p}L_p-rI_p\right)\\
+		&+
+			k_4\left(1-\frac{S_v^*}{S_v}\right)\left(-\beta_v S_v\frac{I_p}{N_p}-\gamma S_v +\beta_v S^*_v\frac{I^*_p}{N_p}+\gamma S^*_v\right)\\
+		&+
+			k_5\left(1-\frac{I_v^*}{I_v}\right)\left(\beta_v S_v\frac{I_p}{N_p}-\gamma I_v-\beta_v S^*_v\frac{I^*_p}{N_p}+\gamma I^*_v\right)\\
+		&+
+			\frac{1}{2}\left(k_1\sigma_p^2S_p^*+k_2\sigma_p^2 L_p^*+k_3\sigma_p^2I_p^*+k_4\sigma_v^2S_v^*+k_5\sigma_v^2I_v^*\right).
+	\end{align*}
+%
+	Using algebraic procedures, we obtain
+	
+	\begin{align*}
+		\mathcal{L}&[V(S_p,L_p,I_p,S_v,I_v)]\leq 
+			-\frac{k_1rS_p^*}{S_pS_p^*}(S_p-S_p^*)^2+\frac{k_1\beta_p}{N_v}S_p^*I_v^*(1-\frac{S_p^*}{S_p}+\frac{I_v}{I_v^*}-\frac{S_pI_v}{S_p^*I_v^*})\\
+		&+
+			\frac{k_2\beta_p}{N_v}S_p^*I_v^*(\frac{S_pI_v}{S^*_pI^*_v}-\frac{L_p}{L_p^*}-\frac{S_pI_vL_p^*}{S_p^*I_v^*L_p}+1)+rk_3I_p^*(\frac{L_p}{L_p^*}-\frac{I_p}{I^*_p}-\frac{L_pI_p^*}{L_p^*I_p}+1)\\
+		&-
+			\frac{\gamma k_4}{S_vS_v^*}(S_v-S_v^*)^2+\frac{k_4\beta_v}{N_p}S_v^*I_p^*(1+\frac{I_p}{I_p^*}-\frac{S_v^*}{S_v}-\frac{S_vI_p}{S_v^*I_p^*})\\
+		&-
+			\frac{\gamma k_5 I_v^*}{I_vI_v^*}(I_v-I_v^*)^2-\frac{k_5\beta_v}{N_p}S_v*I_p^*(1-\frac{S_vI_p}{S_v^*I_p^*}-\frac{I_v^*}{I_v}+\frac{S_vI_p^*I_v^*}{S_v^*I_pI_v})\\
+		&+
+			\frac{1}{2}\left(k_1\sigma_p^2S_p^*+k_2\sigma_p^2 L_p^*+k_3\sigma_p^2I_p^*+k_4\sigma_v^2S_v^*+k_5\sigma_v^2I_v^*\right).
+	\end{align*}
+%
+	Sustituting the $k_1,k_2,k_3,k_4, k_5$ and factorizing the term $-\frac{\beta_p S_p^*I_v^*}{N_v}$, we obtain
+	
+	\begin{align*}
+		\mathcal{L}&[V(S_p,L_p,I_p,S_v,I_v)]\leq 
+				-\frac{k_1rS_p^*}{S_pS_p^*}(S_p-S_p^*)^2-\frac{\gamma k_4}{S_vS_v^*}(S_v-S_v^*)^2-\frac{\gamma k_5 I_v^*}{I_vI_v^*}(I_v-I_v^*)^2\\
+			&-
+				\frac{k_1\beta_p}{N_v}S_p^*I_v^*\left(\frac{S_p^*}{S_p}-\frac{I_v}{I_v^*}+\frac{S_pI_v}{S_p^*I_v^*}-1-\frac{S_pI_v}{S^*_pI^*_v}+\frac{L_p}{L_p^*}+\frac{S_pI_vL_p^*}{S_p^*I_v^*L_p}-1\right.\\
+			&-
+				\frac{L_p}{L_p^*}+\frac{I_p}{I^*_p}+\frac{L_pI_p^*}{L_p^*I_p}-1-1-\frac{I_p}{I_p^*}+\frac{S_v^*}{S_v}+\frac{S_vI_p}{S_v^*I_p^*}\\
+			&+
+				\left.1-\frac{S_vI_p}{S_v^*I_p^*}-\frac{I_v^*}{I_v}+\frac{S_vI_p^*I_v^*}{S_v^*I_pI_v}\right)\\
+			&+
+				\frac{1}{2}\left(k_1\sigma_p^2S_p^*+k_2\sigma_p^2 L_p^*+k_3\sigma_p^2I_p^*+k_4\sigma_v^2S_v^*+k_5\sigma_v^2I_v^*\right).
+	\end{align*}
+%	
+	Simplify the above inequality we obtain the following equation
+	
+		\begin{align*}
+		\mathcal{L}&[V(S_p,L_p,I_p,S_v,I_v)]\leq 
+				-\frac{k_1rS_p^*}{S_pS_p^*}(S_p-S_p^*)^2-\frac{\gamma k_4}{S_vS_v^*}(S_v-S_v^*)^2-\frac{\gamma k_5 I_v^*}{I_vI_v^*}(I_v-I_v^*)^2\\
+			&-
+				\frac{k_1\beta_p}{N_v}S_p^*I_v^*\left(\frac{S_p^*}{S_p}+\frac{S_pI_vL_p^*}{S_p^*I_v^*L_p}+\frac{L_pI_p}{L_p^*I_p^*}+\frac{S_vI_p^*I_v^*}{S_v^*I_pI_v}+\frac{S_v^*}{S_v}-\frac{I_v}{I_v^*}-\frac{I_v^*}{I_v}-3\right)\\
+			&+
+				\frac{1}{2}\left(k_1\sigma_p^2S_p^*+k_2\sigma_p^2 L_p^*+k_3\sigma_p^2I_p^*+k_4\sigma_v^2S_v^*+k_5\sigma_v^2I_v^*\right).
+	\end{align*}
+%	
+	Since the arithmetic mean is greater than or equal to the geometric mean, we have for 	$-\left(\frac{I_v}{I_v^*}+\frac{I_v^*}{I_v}\right)\leq -2$, then
+	
+	\begin{align*}
+		\mathcal{L}&[V(S_p,L_p,I_p,S_v,I_v)]\leq 
+				-\frac{k_1rS_p^*}{S_pS_p^*}(S_p-S_p^*)^2-\frac{\gamma k_4}{S_vS_v^*}(S_v-S_v^*)^2-\frac{\gamma k_5 I_v^*}{I_vI_v^*}(I_v-I_v^*)^2\\
+			&-
+				\frac{k_1\beta_p}{N_v}S_p^*I_v^*\left(\frac{S_p^*}{S_p}+\frac{S_pI_vL_p^*}{S_p^*I_v^*L_p}+\frac{L_pI_p}{L_p^*I_p^*}+\frac{S_vI_p^*I_v^*}{S_v^*I_pI_v}+\frac{S_v^*}{S_v}-5\right)\\
+			&+
+				\frac{1}{2}\left(k_1\sigma_p^2S_p^*+k_2\sigma_p^2 L_p^*+k_3\sigma_p^2I_p^*+k_4\sigma_v^2S_v^*+k_5\sigma_v^2I_v^*\right).
+	\end{align*}
+%
+	And this implies that
+
+	\begin{equation*}
+			\frac{S_p^*}{S_p}+\frac{S_pI_vL_p^*}{S_p^*I_v^*L_p}+\frac{L_pI_p}{L_p^*I_p^*}+\frac{S_vI_p^*I_v^*}{S_v^*I_pI_v}+\frac{S_v^*}{S_v}\geq 5
+	\end{equation*}
+	Therefore,
+	
+	\begin{align*}
+		0&\leq \E V(S_p,L_p,I_p,S_v,I_v)-V(S_p(0),L_p(0),I_p(0),S_v(0),I_v(0))\\
+			&\leq 
+				\E \int_{0}^{t}\mathcal{L}[V(S_p(s),L_p(s),I_p(s),S_v(s),I_v(s))]ds\\
+			&=-	
+				\E \int_{0}^{t} \left[\frac{k_1rS_p^*}{S_pS_p^*}(S_p-S_p^*)^2+\frac{\gamma k_4}{S_vS_v^*}(S_v-S_v^*)^2+\frac{\gamma k_5 I_v^*}{I_vI_v^*}(I_v-I_v^*)^2\right.\\
+			&+
+				\left.\frac{k_1\beta_p}{N_v}S_p^*I_v^*\left(\frac{S_p^*}{S_p}+\frac{S_pI_vL_p^*}{S_p^*I_v^*L_p}+\frac{L_pI_p}{L_p^*I_p^*}+\frac{S_vI_p^*I_v^*}{S_v^*I_pI_v}+\frac{S_v^*}{S_v}-5\right)\right]ds\\
+			&+
+				\frac{1}{2}\left(k_1\sigma_p^2S_p^*+k_2\sigma_p^2 L_p^*+k_3\sigma_p^2I_p^*+k_4\sigma_v^2S_v^*+k_5\sigma_v^2I_v^*\right)t.
+	\end{align*}
+%
+	Now, dividing each term by $t$ and letting $t\rightarrow \infty$, we obtain that
+	
+	\begin{align*}	
+		\lim\limits_{t\rightarrow \infty}&\frac{1}{t}\E \int_{0}^{t} \left[\frac{k_1rS_p^*}{S_pS_p^*}(S_p-S_p^*)^2+\frac{\gamma k_4}{S_vS_v^*}(S_v-S_v^*)^2+\frac{\gamma k_5 I_v^*}{I_vI_v^*}(I_v-I_v^*)^2\right.\\
+		&+
+		\left.\frac{k_1\beta_p}{N_v}S_p^*I_v^*\left(\frac{S_p^*}{S_p}+\frac{S_pI_vL_p^*}{S_p^*I_v^*L_p}+\frac{L_pI_p}{L_p^*I_p^*}+\frac{S_vI_p^*I_v^*}{S_v^*I_pI_v}+\frac{S_v^*}{S_v}-5\right)\right]ds\\
+		&\leq
+		\frac{1}{2}\left(k_1\sigma_p^2S_p^*+k_2\sigma_p^2 L_p^*+k_3\sigma_p^2I_p^*+k_4\sigma_v^2S_v^*+k_5\sigma_v^2I_v^*\right).
+	\end{align*}
+%	
+	That's mean that disease persist with probability one. This tells us that the solution will be oscillating around the endemic equilibrium point of the deterministic system.
+\end{proof}

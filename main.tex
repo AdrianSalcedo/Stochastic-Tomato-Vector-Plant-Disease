@@ -1,0 +1,182 @@
+\RequirePackage{fix-cm}
+\documentclass[smallextended]{svjour3}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{graphicx}
+\usepackage[table, svgnames, dvipsnames]{xcolor}
+\usepackage[colorinlistoftodos,
+    prependcaption,
+    textsize=tiny]{todonotes}
+\usepackage{proba}
+\usepackage{enumerate}
+\usepackage{booktabs}
+\usepackage{latexsym}
+\usepackage{xargs}
+\usepackage{mathptmx}
+\usepackage{csquotes}
+\usepackage{paralist}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{varioref}
+\usepackage[%           % Fine in most cases
+            pdfpagelabels,hypertexnames=true,
+            plainpages=false,
+            naturalnames=false]{hyperref}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage[section]{placeins}
+%\usepackage[symbol]{footmisc}
+\definecolor{darkblue}{rgb}{0,0.1,0.5}
+\hypersetup{colorlinks,
+            linkcolor=darkblue,
+            anchorcolor=darkblue,
+            citecolor=darkblue}
+%
+\DeclareMathOperator{\trace}{trace}
+%\def\correspondingauthor{\footnote{Corresp%onding author.}}
+\newcommandx{\unsure}[2][1=]{%
+	\todo[%
+        linecolor=gray,
+        backgroundcolor=gray!25,
+       bordercolor=gray, 
+        #1]{#2}
+}
+\newcommandx{\change}[2][1=]{%
+    \todo[
+        linecolor=blue,
+        backgroundcolor=blue!25,
+        bordercolor=blue, #1]{#2}
+}
+\newcommandx{\info}[2][1=]{%
+    \todo[
+        linecolor=OliveGreen,
+        backgroundcolor=OliveGreen!25,
+        bordercolor=OliveGreen, #1]{#2}
+}
+\newcommandx{\improvement}[2][1=]{
+    \todo[linecolor=FireBrick,
+        backgroundcolor=FireBrick!25,
+        bordercolor=FireBrick,#1]{#2}
+}
+\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
+\newtheorem{hyp}{Hypothesis}
+%-------------------------------------------
+\smartqed 
+\journalname{Journal of Dynamics and Differential Equations}
+\usepackage{scrtime}
+% fnpct instead of footmisc:
+\usepackage[dont-mess-around]{fnpct}
+
+% patch \maketitle:
+\usepackage{etoolbox}
+\newcommand*{\affaddr}[1]{#1} % No op here. Customize it for different styles.
+\newcommand*{\affmark}[1][*]{\textsuperscript{#1}}
+\usepackage{latexsym}
+\begin{document}
+	\title{%
+		Threshold behavior of a stochastic vector plant model.
+	}
+	\subtitle{%
+		The Tomato Yellow Curl Virus
+	}
+	\author{%
+		Gabriel Salcedo-Varela \\ orcid:0000-0002-0147-5089\and 
+		Saul Diaz-Infante
+	}
+	\institute{
+		Gabriel Salcedo-Varela \at
+		Universidad de Sonora,
+		\\
+		Departamento de Matem\'aticas, 
+		\\
+		Boulevard Luis Encinas y Rosales s/n Col. Centro, 
+		\\
+		Hermosillo, Sonora, CP 83000
+		\\
+        Tel.: +521 (662)-259-2155, ext. 2394
+        \\
+        Fax: +521 (662) 259-2219
+        \\
+        \email{a211203745@unison.mx}
+        \and
+         Saul Diaz Infante Velasco 
+        \at
+        CONACYT-Universidad de Soonora,
+		\\
+		Departamento de Matem\'aticas, 
+		\\
+		Boulevard Luis Encinas y Rosales
+		s/n Col. Centro,		\\
+		Hermosillo, Sonora, CP 83000
+		\\
+        Tel.: +521 (662)-259-2155
+        \\
+        Fax: +521 (662) 259-2219
+        \\
+        \email{saul.diazinfante@unison.mx}
+	}
+	\date{Received: \today / Accepted: date}
+	\titlerunning{SDE-vector plant}
+	\authorrunning{G. Salcedo-Varela, S. Diaz-Infante}
+	\maketitle
+	%\keywords{Keywords}
+	%
+	\begin{abstract}
+		BACKGROUND
+		\\
+		PROBLEM SETUP
+		\\
+		FINDINGS 
+		\\
+		IMPLICATIONS
+	\end{abstract}
+	\
+	\section{Introduction}
+	    \input{Sections/introduction}
+	\improvement{Review the structure}
+	\section{Deterministic base dynamics}
+		\label{sec:model_formulation}
+		\input{Sections/Model}
+		\subsection{Deterministic fixed points}
+			%\change{
+			    %Move definition of invariant set to this section.
+			  %  Write a paragraph about Positivity invariance
+			    %Compute $R_O$ and write paragraphs to
+			    %describe fixed points. Fist Free disease.
+			%} 
+			\input{Sections/Equilibrium_Points}
+			
+	\section{Stochastic extension}
+		\input{Sections/stochastic_extension}
+	\section{Existence of a unique positive solution}
+		\label{sec:solution_existence}
+		\input{Sections/Existence}
+	\section{Disease extinction}
+		\label{extinction}
+		\input{Sections/Extinction}
+	\section{Persistence}
+		\label{sec:persistence}
+		\input{Sections/Upper_Bound_Persistence}
+		\input{Sections/Lower_Bound_Persistence}
+	\section{Numerical Results}
+		\label{sec:numerics}
+		\input{Sections/Numerical_Results}
+	\section{Conclusion}
+	    \todo{Write a proposal}
+		\label{sec:conclusion}
+	    \input{Sections/conclusion}
+	\section{Here the fucking todo list. Task due to Junary 12 2021}
+	\listoftodos
+	\appendix
+	\section{Background 1}
+	\input{Appendix_1}
+	\label{app::A}
+	\section{Background 2}
+	\input{Appendix_2}
+	\label{app::B}
+	\bibliography{Ref_Book,Ref_Article}{}
+    \bibliographystyle{spmpsci}
+	\info{add a tex source with the appendix files}
+\end{document}

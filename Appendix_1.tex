@@ -1,0 +1,29 @@
+Given a function 
+$
+	V\in C^{2,1}(\R^n\times\R_{+};\R)
+$, 
+define an operator 
+$
+	\mathcal{L}[V]:\R ^ n \times \R_{+}\to\R
+$ by
+\begin{equation}\label{eqn::DifussionOperator}
+	\mathcal{L}[V(x,t)] = 
+		V_t(x,t) + 
+		V_x(x,t) f(x,t) + 
+		\frac{1}{2} 
+		\trace(g^T(x,t)V_{xx}(x,t)g(x,t))
+\end{equation}
+%
+which is called the diffusion operator of the It\^{o} process associated with 
+the $C^{2,1}$ function $V$. With this diffusion operator, the It\^{o} formula 
+can be written as
+\begin{equation}\label{eqn::Itoformula}
+	dV(x(t),t) = 
+		\mathcal{L}
+			V(x(t),t)dt + 
+			V_x(x(t), t) 
+			g(x(t),t) dB(t) \qquad a.s.
+\end{equation}
+\begin{theorem}
+Here Khaminskii theorem
+\end{theorem}
